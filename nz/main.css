@@ -24,3 +24,8 @@ header p {
   header nav image {
       border-radius: 50%;
   }
+
+  a:link,
+  a:visited {
+      color: black;
+  }
