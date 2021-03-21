@@ -3,6 +3,11 @@ body {
     margin: auto;
     font-family: 'Open Sans', sans-serif;
 }
+
+img.banner {
+    border-radius: 10px;
+}
+
 header {
     text-align: center;
 }
@@ -11,8 +16,9 @@ header p {
     font-weight: bold;
     font-size: 0.8em;
     padding-right: lem;
-    margin-top: -2em; 
-  }
+    margin-top: -2em;
+    
+}
 
   .white,
   .white a:link,
@@ -52,6 +58,9 @@ main p{
 
   main figure img {
       border: 1px solid black;
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
   }
 
   #map {
