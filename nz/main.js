@@ -20,6 +20,11 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
     ]  
 });
 
+console.log(ROUTE)
+for (let entry of ROUTE) {
+    console.log(entry);
+}
+
 let mrk = L.marker([stop.lat, stop.lng]).addTo(map);
 mrk.bindPopup(`
 <h4>Stop ${stop.nr}: ${stop.name} </h4>
