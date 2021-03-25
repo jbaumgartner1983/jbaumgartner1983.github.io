@@ -5,6 +5,9 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
         L.titleLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")  //server {s} von open street map, {z} ist der zoomlayer
     ]  
 });
+
+let mrk = L.marker([64.3137, -20.2995])
+
 //64.3137, -20.2995
 console.log(document.querySelector("#map"));
 
