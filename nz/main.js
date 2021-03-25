@@ -38,7 +38,7 @@ for (let entry of ROUTE) {       //for Schleife erstellen
     let mrk = L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(`
       <h4>Stop ${entry.nr}: ${entry.name} </h4>
-      <p><i class= "fas fa-external-link-alt mr-3"></i><a href = "${entry.wikipedia}">Read about stop in Wikipedia</a>
+      <p><a href = "${entry.wikipedia}"><i class= "fas fa-external-link-alt mr-3"></i>Read about stop in Wikipedia</a>
       </p>
     `);
 
@@ -49,12 +49,13 @@ for (let entry of ROUTE) {       //for Schleife erstellen
 };
 
 nav.options.selectedIndex = 1-1;
+
 nav.onchange = (evt) => {
     console.log(evt.target);
     let selected = evt.target.selectedIndex;
     let options = evt.target.options;
 
-    let value = options[selected].value;
+    let username = options[selected].value;
     let link = `https://${username}.github.io/nz/index.html`;
     console.log(username,link);
 
