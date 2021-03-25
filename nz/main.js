@@ -48,6 +48,7 @@ for (let entry of ROUTE) {       //for Schleife erstellen
     }
 }
 
+nav.options.selectedIndex = 1-1;
 nav.onchange = (evt) => {
     console.log(evt.target);
     let selected = evt.target.selectedIndex;
@@ -59,7 +60,8 @@ nav.onchange = (evt) => {
 
     window.location.href = link;
 
-}
+};
+
 
 
 //64.3137, -20.2995
