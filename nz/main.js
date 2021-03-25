@@ -20,9 +20,15 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
     ]  
 });
 
+let nav = document.querySelector("#navigation");
+console.log(nav);
+
 //console.log(ROUTE)
 for (let entry of ROUTE) {       //for Schleife erstellen
    // console.log(entry);
+  nav.innerHTML += `
+  <option value="${entry.user}"> Stop ${entry.nr}: ${entry.name}</option>
+  `;
 
     let mrk = L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(`
@@ -38,4 +44,4 @@ for (let entry of ROUTE) {       //for Schleife erstellen
 }
 //64.3137, -20.2995
 //console.log(document.querySelector("#map"));
-
+//<option value="jbaumgartner1983">Geysire</option>
