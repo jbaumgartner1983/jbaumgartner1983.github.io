@@ -47,6 +47,19 @@ for (let entry of ROUTE) {       //for Schleife erstellen
         mrk.openPopup();
     }
 }
+
+nav.onchange = (evt) => {
+    console.log(evt.target);
+    let selected = evt.target.selectedIndex;
+    let options = evt.target.options;
+
+    let value = options[selected].value;
+    let link = `https://${username}.github.io/nz/index.html`;
+    console.log(value,link);
+
+}
+
+
 //64.3137, -20.2995
 //console.log(document.querySelector("#map"));
 //<option value="jbaumgartner1983">Geysire</option>
