@@ -21,8 +21,14 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
 });
 
 let mrk = L.marker([stop.lat, stop.lng]).addTo(map);
-mrk.bindPopup("Geysire").openPopup();
+mrk.bindPopup(`
+<h4>Stop ${stop.nr}: ${stop.name} </h4>
+<p><i class= "fas fa-external-link-alt mr-3"></i><a href = "${stop.wikipedia}">Read about stop in Wikipedia</a>
+</p>
+
+`).openPopup();
+
 
 //64.3137, -20.2995
-console.log(document.querySelector("#map"));
+//console.log(document.querySelector("#map"));
 
