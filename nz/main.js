@@ -14,7 +14,7 @@ console.log(stop.wikipedia);
 
 const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
     center: [stop.lat, stop.lng], //liste mit koordinaten, lat und long koordinaten
-    zoom: 13, //1 ist die ganze Welt
+    //zoom: 13, //1 ist die ganze Welt
     layers: [              // ist ein array
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")  //server {s} von open street map, {z} ist der zoomlayer
     ]  
@@ -32,12 +32,10 @@ for (let entry of ROUTE) {       //for Schleife erstellen
     `);
 
     if (entry.nr == 1) {
+        map.setView ([entry.lat, entry.lng, 1])
         mrk.openPopup();
     }
-
 }
-
-
 //64.3137, -20.2995
 //console.log(document.querySelector("#map"));
 
