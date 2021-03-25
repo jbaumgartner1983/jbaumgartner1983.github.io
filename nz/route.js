@@ -1,3 +1,5 @@
+
+const ROUTE = [
 {
     nr: 2,
     name: "Lake Tekapo",
@@ -7,11 +9,11 @@
     wikipedia: "https://en.wikipedia.org/wiki/Lake_Tekapo"
 }, {
     nr: 16,
-    name: "Pancake Rocks"
-    lat: -42.118611
-    long: 171.326944
-    user: "timeastwood6020"
-    wikipedia: "https://de.wikipedia.org/wiki/Pancake_Rocks"
+    name: "Pancake Rocks",
+    lat: -42.118611,
+    long: 171.326944,
+    user: "timeastwood6020",
+    wikipedia: "https://de.wikipedia.org/wiki/Pancake_Rocks",
 }, {
     nr: 12,
     name: "Queenstown",
@@ -31,7 +33,7 @@
     name: "Geysire",
     lat: 64.3137,
     lng: -20.2995,
-    user: "jbaumgartner1983"
+    user: "jbaumgartner1983",
     wikipedia: "https://en.wikipedia.org/wiki/Geysir"
 }, {
     nr: 14,
@@ -106,16 +108,16 @@
 }, {
     nr: 11,
     name: "Milford Sound",
-    lat: -44.616667
+    lat: -44.616667,
     lng: 167.866667,
-    user: "webmapping",
+    user: "asboehle",
     wikipedia: "https://de.wikipedia.org/wiki/Milford_Sound"
 }, {
     nr: 7,
     name: "Dunedine",
-    lat: -45.874167
-    lng: 170.503611
-    user: "webmapping",
+    lat: -45.874167,
+    lng: 170.503611,
+    user: "annaklara123",
     wikipedia: "https://en.wikipedia.org/wiki/Dunedin"
 }, {
     nr: 15,
@@ -179,4 +181,4 @@
     lng: 172.8381,
     user: "AnnaKeuschnigg",
     wikipedia: "https://en.wikipedia.org/wiki/Lake_Rotoiti_(Tasman)"
-}
+}];
