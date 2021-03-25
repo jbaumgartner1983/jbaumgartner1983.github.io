@@ -6,7 +6,7 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
     ]  
 });
 
-let mrk = L.marker([64.3137, -20.2995])
+let mrk = L.marker([64.3137, -20.2995]).addTo(map);
 
 //64.3137, -20.2995
 console.log(document.querySelector("#map"));
