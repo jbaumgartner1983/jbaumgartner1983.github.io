@@ -25,7 +25,7 @@ console.log(nav);
 
 //console.log(ROUTE)
 ROUTE.sort((stop1,stop2) => {
-    return stop1.nr > stop2.nr
+    return stop1.nr > stop2.nr;
 });
 
 for (let entry of ROUTE) {       //for Schleife erstellen
