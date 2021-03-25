@@ -1,6 +1,4 @@
-
-const ROUTE = [
-{
+const ROUTE = [{
     nr: 2,
     name: "Lake Tekapo",
     lat: -43.883333,
@@ -11,9 +9,9 @@ const ROUTE = [
     nr: 16,
     name: "Pancake Rocks",
     lat: -42.118611,
-    long: 171.326944,
+    lng: 171.326944,
     user: "timeastwood6020",
-    wikipedia: "https://de.wikipedia.org/wiki/Pancake_Rocks",
+    wikipedia: "https://de.wikipedia.org/wiki/Pancake_Rocks"
 }, {
     nr: 12,
     name: "Queenstown",
@@ -114,7 +112,7 @@ const ROUTE = [
     wikipedia: "https://de.wikipedia.org/wiki/Milford_Sound"
 }, {
     nr: 7,
-    name: "Dunedine",
+    name: "Dunedin",
     lat: -45.874167,
     lng: 170.503611,
     user: "annaklara123",
@@ -154,7 +152,7 @@ const ROUTE = [
     user: "marcelharing",
     wikipedia: "https://en.wikipedia.org/wiki/Taiaroa_Head"
 }, {
-    nr: 22,
+    nr: 24,
     name: "Rotorua",
     lat: -38.137778,
     lng: 176.251389,
