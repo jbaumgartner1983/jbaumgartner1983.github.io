@@ -20,15 +20,20 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
     ]  
 });
 
-console.log(ROUTE)
+//console.log(ROUTE)
 for (let entry of ROUTE) {       //for Schleife erstellen
-    console.log(entry);
+   // console.log(entry);
+
     let mrk = L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(`
       <h4>Stop ${entry.nr}: ${entry.name} </h4>
       <p><i class= "fas fa-external-link-alt mr-3"></i><a href = "${entry.wikipedia}">Read about stop in Wikipedia</a>
       </p>
-    `).openPopup();
+    `);
+
+    if (entry.nr == 1) {
+        mrk.openPopup();
+    }
 
 }
 
