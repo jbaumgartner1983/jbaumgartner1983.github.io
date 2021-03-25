@@ -46,7 +46,7 @@ for (let entry of ROUTE) {       //for Schleife erstellen
         map.setView ([entry.lat, entry.lng, 1])
         mrk.openPopup();
     }
-}
+};
 
 nav.options.selectedIndex = 1-1;
 nav.onchange = (evt) => {
