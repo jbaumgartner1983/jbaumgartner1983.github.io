@@ -46,7 +46,7 @@ for (let entry of ROUTE) {       //for Schleife erstellen
 `);
 
     if (entry.nr == 1) {
-        map.setView ([entry.lat, entry.lng], 1]);
+        map.setView ([entry.lat, entry.lng], 1);
         mrk.openPopup();
     }
 }
