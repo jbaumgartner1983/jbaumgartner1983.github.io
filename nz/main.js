@@ -21,11 +21,16 @@ const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
 });
 
 let nav = document.querySelector("#navigation");
-console.log(nav);
+console.log("Navigation HTML Element: ",nav);
 
 //console.log(ROUTE)
+
 ROUTE.sort((stop1,stop2) => {
-    return stop1.nr > stop2.nr;
+    if (stop1.nr > stop2) {
+        return 1;
+    } else {
+          return -1;
+    }
 });
 
 for (let entry of ROUTE) {       //for Schleife erstellen
@@ -34,36 +39,29 @@ for (let entry of ROUTE) {       //for Schleife erstellen
    nav.innerHTML += `
     <option value="${entry.user}"> Stop ${entry.nr}: ${entry.name}</option>
    `;
-
     let mrk = L.marker([entry.lat, entry.lng]).addTo(map);
-    mrk.bindPopup(`
-      <h4>Stop ${entry.nr}: ${entry.name} </h4>
-      <p><a href = "${entry.wikipedia}"><i class= "fas fa-external-link-alt mr-3"></i>Read about stop in Wikipedia</a>
-      </p>
-    `);
+    mrk.bindPopup(`<h4>Stop ${entry.nr}: ${entry.name} </h4>
+<p><a href = "${entry.wikipedia}"><i class= "fas fa-external-link-alt mr-3"></i>Read about stop in Wikipedia</a>
+</p>
+`);
 
     if (entry.nr == 1) {
-        map.setView ([entry.lat, entry.lng, 1])
+        map.setView ([entry.lat, entry.lng], 1]);
         mrk.openPopup();
     }
-};
+}
 
-nav.options.selectedIndex = 1-1;
-
+nav.selectedIndex = 1-1;
 nav.onchange = (evt) => {
-    console.log(evt.target);
+    console.log(evt.target.selectedIndex);
     let selected = evt.target.selectedIndex;
     let options = evt.target.options;
 
     let username = options[selected].value;
     let link = `https://${username}.github.io/nz/index.html`;
-    console.log(username,link);
-
+    console.log(link);
     window.location.href = link;
-
-};
-
-
+}
 
 //64.3137, -20.2995
 //console.log(document.querySelector("#map"));
