@@ -18,7 +18,7 @@ const ROUTE = [{
     lat: -45.031111,
     lng: 168.6625,
     user: "MarieWieschollek",
-    wikipedia: "https://en.wikipedia.org/wiki/Queenstown,_New_Zealand",
+    wikipedia: "https://en.wikipedia.org/wiki/Queenstown,_New_Zealand"
 }, {
     nr: 22,
     name: "Tongariro National Park",
@@ -60,7 +60,7 @@ const ROUTE = [{
     lat: -41.293056,
     lng: 174.001944,
     user: "maximilianender",
-    wikipedia: "https://en.wikipedia.org/wiki/Picton,_New_Zealand",
+    wikipedia: "https://en.wikipedia.org/wiki/Picton,_New_Zealand"
 }, {
     nr: 20,
     name: "Wellington",
@@ -81,7 +81,7 @@ const ROUTE = [{
     lat: -38.684444,
     lng: 176.070833,
     user: "Christinal2012",
-    wikipedia: "https://en.wikipedia.org/wiki/Taup%C5%8D",
+    wikipedia: "https://en.wikipedia.org/wiki/Taup%C5%8D"
 }, {
     nr: 4,
     name: "Omarama",
@@ -102,7 +102,7 @@ const ROUTE = [{
     lat: -45.345275,
     lng: 170.826061,
     user: "anna7br",
-    wikipedia: "https://en.wikipedia.org/wiki/Moeraki_Boulders",
+    wikipedia: "https://en.wikipedia.org/wiki/Moeraki_Boulders"
 }, {
     nr: 11,
     name: "Milford Sound",
