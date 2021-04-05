@@ -1,10 +1,10 @@
 let stop = {
     nr: 1,
-    name: "Geysire",
-    lat: 64.3137,
-    lng: -20.2995,
+    name: "Christchurch Botanic Garden",
+    lat: -45.53,
+    lng: 172.62,
     user: "jbaumgartner1983",
-    wikipedia: "https://en.wikipedia.org/wiki/Geysir",
+    wikipedia: "https://en.wikipedia.org/wiki/Christchurch_Botanic_Gardens",
 }
 console.log(stop);
 console.log(stop.name);
