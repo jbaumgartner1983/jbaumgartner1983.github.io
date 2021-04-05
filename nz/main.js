@@ -26,7 +26,7 @@ console.log("Navigation HTML Element: ",nav);
 //console.log(ROUTE)
 
 ROUTE.sort((stop1,stop2) => {
-    if (stop1.nr > stop2) {
+    if (stop1.nr > stop2.nr) {
         return 1;
     } else {
           return -1;
