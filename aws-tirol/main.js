@@ -21,5 +21,8 @@ let map = L.map ("map", {
         ])
     }).addTo(map);
 
+    let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
+    fetch(awsUrl)
 
- 
+
+    
