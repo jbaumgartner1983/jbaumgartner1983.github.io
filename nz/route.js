@@ -29,7 +29,7 @@ const ROUTE = [{
 }, {
     nr: 1,
     name: "Christchurch Botanic Gardens",
-    lat: -45.53,
+    lat: -43.53,
     lng: 172.62,
     user: "jbaumgartner1983",
     wikipedia: "https://en.wikipedia.org/wiki/Christchurch_Botanic_Gardens"

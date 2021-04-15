@@ -1,7 +1,7 @@
 let stop = {
     nr: 1,
     name: "Christchurch Botanic Garden",
-    lat: -45.53,
+    lat: -43.53,
     lng: 172.62,
     user: "jbaumgartner1983",
     wikipedia: "https://en.wikipedia.org/wiki/Christchurch_Botanic_Gardens",
@@ -44,7 +44,7 @@ for (let entry of ROUTE) {       //for Schleife erstellen
 `);
 
     if (entry.nr == 1) {
-        map.setView ([entry.lat, entry.lng], 1);
+        map.setView ([entry.lat, entry.lng], 13);
         mrk.openPopup();
     }
 }
