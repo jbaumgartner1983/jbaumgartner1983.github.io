@@ -1,4 +1,4 @@
-let basemapGray = L.tileLayer.provider (" BasemapAT.basemap");
+let basemapGray = L.tileLayer.provider (" BasemapAT.grau");
 
 let map = L.map ("map", {
     center: [47, 11],
@@ -10,7 +10,7 @@ let map = L.map ("map", {
 
 
     let layerControl = L.control.layers({
-        "BasemapAT.basemap": basemapGray,
+        "BasemapAT.grau": basemapGray,
         "BasemapAT.orthofoto": L.tileLayer.provider ("BasemapAT.orthofoto"),
         "BasemapAT.surface": L.tileLayer.provider ("BasemapAT.surface"),
         "BasemapAT.overlay": L.tileLayer.provider ("BasemapAT.overlay"),
@@ -21,7 +21,7 @@ let map = L.map ("map", {
         ])
     }).addTo(map);
 
-    let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
+let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
 
 let awsLayer = L.featureGroup();
 layerControl.addOverlay(awsLayer, "Wetterstationen in Tirol");
@@ -35,12 +35,11 @@ snowLayer.addTo(map)
         .then(json => {
             console.log("Daten konvertieren: ", json);
             for (station of json.features) {
-                console.log("Station: ", station);
+                //console.log("Station: ", station);
                 let marker = L.marker (
                     [station.geometry.coordinates[1],
                     station.geometry.coordinates[0]
-                ]
-                );
+                ]);
 
                 let formattedDate = new Date(station.properties.date);
                 marker.bindPopup(`
@@ -50,21 +49,21 @@ snowLayer.addTo(map)
                 <li>Datum: ${formattedDate.toLocaleString("de")}</li>
                 <li>Seehöhe: ${station.geometry.coordinates[2]} m</li>
                 <li>Temperatur: ${station.properties.LT} C</li>
-                <li>Schneehöhe: ${station.properties.HS || '?'} cm</li>
-                <li>Windgeschwindigkeit: ${station.properties.WG || '?'} km/h</li>
-                <li>Windgeschwindrichtung: ${station.properties.WR || '?'}</li>
+                <li>Schneehöhe: ${station.properties.HS || "?"} cm</li>
+                <li>Windgeschwindigkeit: ${station.properties.WG || "?"} km/h</li>
+                <li>Windgeschwindrichtung: ${station.properties.WR || "?"}</li>
                 </ul>
                 <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
 
                 `);
                 marker.addTo(awsLayer);
                 if (station.properties.HS) {
-                    let highlightClass = '';
+                    let highlightClass = "";
                     if (station.properties.HS > 100) {
-                        highlightClass = 'snow-100';
+                        highlightClass = "snow-100";
                     }
                     if (station.properties.HS > 200) {
-                        highlightClass = 'snow-200';
+                        highlightClass = "snow-200";
                     }
                     let snowIcon = L.divIcon({
                         html: `<div class="snow-label ${highlightClass}">${station.properties.HS}</div>`
@@ -76,6 +75,26 @@ snowLayer.addTo(map)
                         icon: snowIcon
                     });
                     snowMarker.addTo(snowLayer);
+                }
+
+                if (station.properties.WG) {
+                    let windHighlightClass = '';
+                    if (station.properties.WG > 10) {
+                        windHighlightClass = "wind-10";
+                    }
+                    if (station.properties.WG > 20) {
+                        windHighlightClass = "wind-20";
+                    }
+                    let windIcon = L.divIcon({
+                        html: `<div class="wind-label ${windHighlightClass}">${station.properties.WG}</div>`,
+                    });
+                    let windMarker = L.marker([
+                        station.geometry.coordinates[1],
+                        station.geometry.coordinates[0]
+                    ], {
+                        icon: windIcon
+                    });
+                    windMarker.addTo(windLayer);
                 }
 
             }
