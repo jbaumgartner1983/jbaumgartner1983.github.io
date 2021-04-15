@@ -39,7 +39,15 @@ awsLayer.addTo(map);
                     station.geometry.coordinates[0]
                 ]
                 );
-                marker.bindPopup(`</h3>${station.properties.name}</h3>`);
+                marker.bindPopup(`
+                
+                </h3>${station.properties.name}</h3>
+                <ul>
+                <li>Datum: ${station.properties.date}</li>
+                <li>Temperatur: ${station.properties.LT}</li>
+                </ul>
+                
+                `);
                 marker.addTo(awsLayer);
 
             }
