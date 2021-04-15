@@ -11,7 +11,14 @@ let map = L.map ("map", {
 
     let layerControl = L.control.layers({
         "BasemapAT.basemap": basemapGray,
-        "BasemapAT.orthofoto": L.tileLayer.provider ("BasemapAT.basemap")
+        "BasemapAT.orthofoto": L.tileLayer.provider ("BasemapAT.basemap"),
+        "BasemapAT.surface": L.tileLayer.provider ("BasemapAT.surface"),
+        "BasemapAT.overlay": L.tileLayer.provider ("BasemapAT.overlay"),
+        "BasemapAT.overlay+ortho": L.layerGroup( [
+            L.tileLayer.provider("BasemapAT.orthofoto"),
+            L.tileLayer.provider("BasemapAT.overlay")
+
+        ])
     }).addTo(map);
 
 
