@@ -43,6 +43,9 @@ awsLayer.addTo(map);
                 marker.addTo(awsLayer);
 
             }
+
+            //set map view to all stations
+            map.fitBounds(awsLayer.getBounds());
     })
 
 
