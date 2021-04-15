@@ -1,4 +1,4 @@
-let basemapGray = L.tileLayer.provider (" BasemapAT.basemap"),
+let basemapGray = L.tileLayer.provider (" BasemapAT.basemap");
 
 let map = L.map ("map", {
     center: [47, 11],
@@ -11,7 +11,7 @@ let map = L.map ("map", {
 
     let layerControl = L.control.layers({
         "BasemapAT.basemap": basemapGray,
-        "BasemapAT.orthofoto": L.tileLayer.provider ("BasemapAT.basemap"),
+        "BasemapAT.orthofoto": L.tileLayer.provider ("BasemapAT.orthofoto"),
         "BasemapAT.surface": L.tileLayer.provider ("BasemapAT.surface"),
         "BasemapAT.overlay": L.tileLayer.provider ("BasemapAT.overlay"),
         "BasemapAT.overlay+ortho": L.layerGroup( [
@@ -22,6 +22,12 @@ let map = L.map ("map", {
     }).addTo(map);
 
     let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
+
+let awsLayer = L.featureGroup();
+layerControl.addOverlay(awsLayer, "Wetterstationen in Tirol");
+awsLayer.addTo(map);
+
+
     fetch(awsUrl)
         .then(response => response.json())
         .then(json => {
@@ -30,9 +36,11 @@ let map = L.map ("map", {
                 console.log("Station: ", station);
                 let marker = L.marker (
                     [station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]]
+                    station.geometry.coordinates[0]
+                ]
                 );
-                marker.addTo(map):
+                marker.bindPopup(`</h3>${station.properties.name}</h3>`);
+                marker.addTo(awsLayer);
 
             }
     })
