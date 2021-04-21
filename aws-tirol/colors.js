@@ -129,5 +129,5 @@ const COLORS = {
         col:"#cd0feb"
     } 
 
-    ]
+    ],
 };
