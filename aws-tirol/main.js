@@ -6,7 +6,7 @@ let map = L.map ("map", {
     layers: [
         basemapGray
     ]
-    });
+});
 
 
     let layerControl = L.control.layers({
