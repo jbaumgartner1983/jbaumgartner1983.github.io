@@ -1,3 +1,4 @@
+//https://leafletjs.com/reference-1.7.1.html#tilelayer
 let basemapGray = L.tileLayer.provider("BasemapAT.grau");
 
 let map = L.map("map", {
@@ -7,7 +8,7 @@ let map = L.map("map", {
         basemapGray
     ]
 });
-
+//https://leafletjs.com/reference-1.7.1.html#control
 let layerControl = L.control.layers({
     "BasemapAT.grau": basemapGray,
     "BasemapAT.orthofoto": L.tileLayer.provider("BasemapAT.orthofoto"),
@@ -21,6 +22,7 @@ let layerControl = L.control.layers({
 
 let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
 
+//https://leafletjs.com/reference-1.7.1.html#featuregroup
 let awsLayer = L.featureGroup();
 layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
 // awsLayer.addTo(map);
@@ -35,7 +37,7 @@ layerControl.addOverlay(temperatureLayer, "Celsius (C)");
 temperatureLayer.addTo(map);
 
 
-
+//https://leafletjs.com/reference-1.7.1.html#marker
 fetch(awsUrl)
     .then(response => response.json())
     .then(json => {
@@ -105,6 +107,7 @@ fetch(awsUrl)
                 windMarker.addTo(windLayer);
             }
 
+//https://leafletjs.com/reference-1.7.1.html#divIcon            
             if (station.properties.LT) {
                 let temperatureHighlightClass = "";
                 if (station.properties.LT <= 0) {

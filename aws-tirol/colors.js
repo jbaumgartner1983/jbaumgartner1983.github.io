@@ -83,9 +83,7 @@ const COLORS = {
         min:30,
         max:999,
         col:"#ff1e23"
-    }
-    
-    
+    }  
     ],
     snowheight: [
     {
