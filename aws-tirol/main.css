@@ -24,7 +24,7 @@ margin: auto;
         -1px -1px 0 white;
 }
 
-.snow-100, .wind-10 .neg-temp {
+.snow-100, .wind-10 .neg-temperature {
     background-color: blue;
 }
 
@@ -32,6 +32,6 @@ margin: auto;
     background-color: red;
 }
 
-.pos-temp {
+.pos-temperature {
     background-color: green;
 }
