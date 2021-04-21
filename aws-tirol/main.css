@@ -24,10 +24,14 @@ margin: auto;
         -1px -1px 0 white;
 }
 
-.snow-100 {
+.snow-100, .wind-10 .neg-temp {
     background-color: blue;
 }
 
-.snow-200 {
+.snow-200, .wind-20 {
     background-color: red;
+}
+
+.pos-temp {
+    background-color: green;
 }
