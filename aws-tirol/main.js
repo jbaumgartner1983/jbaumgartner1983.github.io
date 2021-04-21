@@ -107,7 +107,7 @@ fetch(awsUrl)
                 windMarker.addTo(windLayer);
             }
 
-//https://leafletjs.com/reference-1.7.1.html#divIcon            
+            //https://leafletjs.com/reference-1.7.1.html#divIcon            
             if (station.properties.LT) {
                 let temperatureHighlightClass = "";
                 if (station.properties.LT <= 0) {
