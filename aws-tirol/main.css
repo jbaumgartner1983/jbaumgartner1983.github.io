@@ -6,11 +6,11 @@ h2 {
 width: 90vw;
 height: 90vh;
 border: solid black 1px;
-margin: atuo; 
+margin: auto; 
 
 }
 
-.snow-label {
+.snow-label, .windlabel {
     font-size: 1.25em;
     font-weight: bold;
     display: inline;
