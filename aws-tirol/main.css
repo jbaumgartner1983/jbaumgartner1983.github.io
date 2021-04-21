@@ -3,32 +3,35 @@ h2 {
 }
 
 #map {
-width: 90vw;
-height: 90vh;
-border: solid black 1px;
-margin: auto; 
+    width: 90vw;
+    height: 90vh;
+    border: solid black 1px;
+    margin: auto;
 
 }
 
-.snow-label, .windlabel {
+.snow-label,
+.windlabel {
     font-size: 1.25em;
     font-weight: bold;
     display: inline;
     padding: 0.3em;
     border: 1px solid gray;
     background-color: silver;
-    text-shadow: 
+    text-shadow:
         -1px -1px 0 white,
         -1px -1px 0 white,
         -1px -1px 0 white,
         -1px -1px 0 white;
 }
 
-.snow-100, .wind-10 .neg-temperature {
+.snow-100,
+.wind-10 .neg-temperature {
     background-color: blue;
 }
 
-.snow-200, .wind-20 {
+.snow-200,
+.wind-20 {
     background-color: red;
 }
 
