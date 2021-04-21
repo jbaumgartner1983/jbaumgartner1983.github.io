@@ -1,4 +1,4 @@
-let basemapGray = L.tileLayer.provider (" BasemapAT.grau");
+let basemapGray = L.tileLayer.provider ("BasemapAT.grau");
 
 let map = L.map ("map", {
     center: [47, 11],
@@ -7,7 +7,6 @@ let map = L.map ("map", {
         basemapGray
     ]
 });
-
 
     let layerControl = L.control.layers({
         "BasemapAT.grau": basemapGray,
@@ -24,11 +23,16 @@ let map = L.map ("map", {
 let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
 
 let awsLayer = L.featureGroup();
-layerControl.addOverlay(awsLayer, "Wetterstationen in Tirol");
-//awsLayer.addTo(map);
+layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
+// awsLayer.addTo(map);
 let snowLayer = L.featureGroup();
 layerControl.addOverlay(snowLayer, "Schneehöhen (cm)");
-snowLayer.addTo(map)
+// snowLayer.addTo(map);
+let windLayer = L.featureGroup();
+layerControl.addOverlay(windLayer, "Windgeschwindigkeit (km/h)");
+windLayer.addTo(map);
+
+
 
     fetch(awsUrl)
         .then(response => response.json())
