@@ -86,8 +86,8 @@ let temperatureLayer = L.featureGroup();
 layerControl.addOverlay(temperatureLayer, "Celsius (C)");
 temperatureLayer.addTo(map);*/
 
-
 //https://leafletjs.com/reference-1.7.1.html#marker
+
 fetch(awsUrl)
     .then(response => response.json())
     .then(json => {
@@ -114,72 +114,34 @@ fetch(awsUrl)
                 <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
                 `);
 
-            marker.addTo(awsLayer);
-            if (station.properties.HS) {
-                let highlightClass = "";
-                if (station.properties.HS > 100) {
-                    highlightClass = "snow-100";
+                marker.addTo(overlays.stations);
+                if (typeof station.properties.HS == "number") {
+                    let marker = newLabel(station.geometry.coordinates, {
+                        value: station.properties.HS.toFixed(0),
+                        colors: COLORS.snowheight,
+                        station: station.properties.name
+                    });
+                    marker.addTo(overlays.snowheight);
                 }
-                if (station.properties.HS > 200) {
-                    highlightClass = "snow-200";
+                if (typeof station.properties.WG == "number") {
+                    let marker = newLabel(station.geometry.coordinates, {
+                        value: station.properties.WG.toFixed(0),
+                        colors: COLORS.windspeed,
+                        station: station.properties.name
+                    });
+                    marker.addTo(overlays.windspeed);
                 }
-
-                let snowIcon = L.divIcon({
-                    html: `<div class="snow-label ${highlightClass}">${station.properties.HS}</div>`
-                })
-
-                let snowMarker = L.marker([
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
-                    icon: snowIcon
-                });
-                snowMarker.addTo(snowLayer);
+                if (typeof station.properties.LT == "number") {
+                    let marker = newLabel(station.geometry.coordinates, {
+                        value: station.properties.LT.toFixed(1),
+                        colors: COLORS.temperature,
+                        station: station.properties.name
+                    });
+                    marker.addTo(overlays.temperature);
+                }
             }
+            // set map view to all stations
+            map.fitBounds(overlays.stations.getBounds());
+        });
 
-            if (station.properties.WG) {
-                let windHighlightClass = "";
-                if (station.properties.WG > 10) {
-                    windHighlightClass = "wind-10";
-                }
-                if (station.properties.WG > 20) {
-                    windHighlightClass = "wind-20";
-                }
-                let windIcon = L.divIcon({
-                    html: `<div class="wind-label ${windHighlightClass}">${station.properties.WG}</div>`,
-                });
-                let windMarker = L.marker([
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
-                    icon: windIcon
-                });
-                windMarker.addTo(windLayer);
-            }
-
-            //https://leafletjs.com/reference-1.7.1.html#divIcon            
-            if (station.properties.LT) {
-                let temperatureHighlightClass = "";
-                if (station.properties.LT <= 0) {
-                    temperatureHighlightClass = "temperature-10";
-                }
-                if (station.properties.LT > 0) {
-                    temperatureHighlightClass = "temperature-gr0";
-                }
-                let temperatureIcon = L.divIcon({
-                    html: `<div class="temperature-label ${temperatureHighlightClass}">${station.properties.LT}</div>`,
-                });
-                let temperatureMarker = L.marker([
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
-                    icon: temperatureIcon
-                });
-                temperatureMarker.addTo(temperatureLayer);
-            }
-
-        }
-
-        //set map view to all stations
-        map.fitBounds(awsLayer.getBounds());
-    });
+    
