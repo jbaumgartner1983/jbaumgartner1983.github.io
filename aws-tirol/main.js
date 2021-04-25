@@ -41,6 +41,10 @@ let layerControl = L.control.layers({
 
 }).addTo(map);
 
+L.control.scale({
+    imperial: false
+}).addTo(map);
+
 let getColor = (value, colorRamp) => {
     //console.log("Wert:", value, "Palette:", colorRamp);
     for (let rule of colorRamp) {
