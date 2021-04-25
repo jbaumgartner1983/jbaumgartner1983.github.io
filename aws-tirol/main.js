@@ -17,7 +17,6 @@ let overlays = {
     winddirection: L.featureGroup()
 };
 
-
 //https://leafletjs.com/reference-1.7.1.html#control
 let layerControl = L.control.layers({
     "BasemapAT.grau": basemapGray,
@@ -37,7 +36,6 @@ let layerControl = L.control.layers({
     "Windrichtung": overlays.winddirection
 }, {
     collapsed: false
-
 
 }).addTo(map);
 
@@ -68,7 +66,6 @@ let newLabel = (coords, options) => {
     });
     return marker;
 };
-
 
 let awsUrl = "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson";
 
@@ -114,34 +111,32 @@ fetch(awsUrl)
                 <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
                 `);
 
-                marker.addTo(overlays.stations);
-                if (typeof station.properties.HS == "number") {
-                    let marker = newLabel(station.geometry.coordinates, {
-                        value: station.properties.HS.toFixed(0),
-                        colors: COLORS.snowheight,
-                        station: station.properties.name
-                    });
-                    marker.addTo(overlays.snowheight);
-                }
-                if (typeof station.properties.WG == "number") {
-                    let marker = newLabel(station.geometry.coordinates, {
-                        value: station.properties.WG.toFixed(0),
-                        colors: COLORS.windspeed,
-                        station: station.properties.name
-                    });
-                    marker.addTo(overlays.windspeed);
-                }
-                if (typeof station.properties.LT == "number") {
-                    let marker = newLabel(station.geometry.coordinates, {
-                        value: station.properties.LT.toFixed(1),
-                        colors: COLORS.temperature,
-                        station: station.properties.name
-                    });
-                    marker.addTo(overlays.temperature);
-                }
+            marker.addTo(overlays.stations);
+            if (typeof station.properties.HS == "number") {
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.HS.toFixed(0),
+                    colors: COLORS.snowheight,
+                    station: station.properties.name
+                });
+                marker.addTo(overlays.snowheight);
             }
-            // set map view to all stations
-            map.fitBounds(overlays.stations.getBounds());
-        });
-
-    
+            if (typeof station.properties.WG == "number") {
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.WG.toFixed(0),
+                    colors: COLORS.windspeed,
+                    station: station.properties.name
+                });
+                marker.addTo(overlays.windspeed);
+            }
+            if (typeof station.properties.LT == "number") {
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.LT.toFixed(1),
+                    colors: COLORS.temperature,
+                    station: station.properties.name
+                });
+                marker.addTo(overlays.temperature);
+            }
+        }
+        // set map view to all stations
+        map.fitBounds(overlays.stations.getBounds());
+    });
