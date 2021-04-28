@@ -15,7 +15,7 @@ let overlays = {
     snowheight: L.featureGroup(),
     windspeed: L.featureGroup(),
     winddirection: L.featureGroup(),
-    humidity: L.featureGroup(),
+    humidity: L.featureGroup()
 };
 
 //https://leafletjs.com/reference-1.7.1.html#control
@@ -26,7 +26,7 @@ let layerControl = L.control.layers({
     "BasemapAT.overlay": L.tileLayer.provider("BasemapAT.overlay"),
     "BasemapAT.overlay+ortho": L.layerGroup([
         L.tileLayer.provider("BasemapAT.orthofoto"),
-        L.tileLayer.provider("BasemapAT.overlay"),
+        L.tileLayer.provider("BasemapAT.overlay")
     ])
 
 }, {
