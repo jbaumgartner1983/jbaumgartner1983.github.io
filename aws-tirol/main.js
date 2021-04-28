@@ -55,6 +55,15 @@ let getColor = (value, colorRamp) => {
     return "black";
 };
 
+let getDirection = (value, directionRamp) => {
+    for (let rule of directionRamp) {
+        if (value >= rule.min && value < rule.max) {
+            return rule.dir;
+        }
+    }
+    return " ";
+};
+
 let newLabel = (coords, options) => {
     let color = getColor(options.value, options.colors);
     //console.log("Wert", options.value, "bekommt Farbe", color);
@@ -99,6 +108,9 @@ fetch(awsUrl)
                 ]);
 
             let formattedDate = new Date(station.properties.date);
+
+            let direction = getDirections (station.porperties.WR, DIRECTIONS);
+
             marker.bindPopup(`
                 
                 </h3>${station.properties.name}</h3>
@@ -108,7 +120,7 @@ fetch(awsUrl)
                 <li>Temperatur: ${station.properties.LT} C</li>
                 <li>Schneehöhe: ${station.properties.HS || "?"} cm</li>
                 <li>Windgeschwindigkeit: ${station.properties.WG || "?"} km/h</li>
-                <li>Windrichtung: ${station.properties.WR || "?"}</li>
+                <li>Windrichtung: ${direction || "?"}</li>
                 <li>Relative Feuchte: ${station.properties.RH || "?"}</li>
                 </ul>
                 <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
