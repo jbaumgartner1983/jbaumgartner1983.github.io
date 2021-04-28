@@ -35,7 +35,7 @@ let layerControl = L.control.layers({
     "Schneehöhe (cm)": overlays.snowheight,
     "Windgeschwindigkeit (km/h)": overlays.windspeed,
     "Windrichtung": overlays.winddirection,
-    "Relative Luftfeuchte": overlays.humidity,
+    "Relative Luftfeuchte (%)": overlays.humidity,
 }, {
     collapsed: false
 
@@ -61,7 +61,7 @@ let getDirection = (value, directionRamp) => {
             return rule.dir;
         }
     }
-    return " ";
+    return " NO ";
 };
 
 let newLabel = (coords, options) => {
