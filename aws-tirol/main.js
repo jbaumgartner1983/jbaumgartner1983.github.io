@@ -139,7 +139,7 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.temperature);
             }
-        }
+        
             if (typeof station.properties.RH == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.RH.toFixed(1),
