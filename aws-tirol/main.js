@@ -26,7 +26,7 @@ let layerControl = L.control.layers({
     "BasemapAT.overlay": L.tileLayer.provider("BasemapAT.overlay"),
     "BasemapAT.overlay+ortho": L.layerGroup([
         L.tileLayer.provider("BasemapAT.orthofoto"),
-        L.tileLayer.provider("BasemapAT.overlay")
+        L.tileLayer.provider("BasemapAT.overlay"),
     ])
 
 }, {
@@ -109,7 +109,7 @@ fetch(awsUrl)
 
             let formattedDate = new Date(station.properties.date);
 
-            let direction = getDirections (station.porperties.WR, DIRECTIONS);
+            let direction = getDirections(station.porperties.WR, DIRECTIONS);
 
             marker.bindPopup(`
                 
@@ -151,14 +151,14 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.temperature);
             }
-        
+
             if (typeof station.properties.RH == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.RH.toFixed(1),
                     colors: COLORS.humidity,
                     station: station.properties.name
-                 });
-             marker.addTo(overlays.humidity);
+                });
+                marker.addTo(overlays.humidity);
             }
         }
         // set map view to all stations
