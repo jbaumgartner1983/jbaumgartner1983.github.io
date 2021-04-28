@@ -14,7 +14,8 @@ let overlays = {
     temperature: L.featureGroup(),
     snowheight: L.featureGroup(),
     windspeed: L.featureGroup(),
-    winddirection: L.featureGroup()
+    winddirection: L.featureGroup(),
+    humidity: L.featureGroup(),
 };
 
 //https://leafletjs.com/reference-1.7.1.html#control
@@ -33,7 +34,8 @@ let layerControl = L.control.layers({
     "Temperatur (°C)": overlays.temperature,
     "Schneehöhe (cm)": overlays.snowheight,
     "Windgeschwindigkeit (km/h)": overlays.windspeed,
-    "Windrichtung": overlays.winddirection
+    "Windrichtung": overlays.winddirection,
+    "Relative Luftfeuchte": overlays.humidity,
 }, {
     collapsed: false
 
@@ -107,6 +109,7 @@ fetch(awsUrl)
                 <li>Schneehöhe: ${station.properties.HS || "?"} cm</li>
                 <li>Windgeschwindigkeit: ${station.properties.WG || "?"} km/h</li>
                 <li>Windrichtung: ${station.properties.WR || "?"}</li>
+                <li>Relative Feuchte: ${station.properties.RH || "?"}</li>
                 </ul>
                 <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
                 `);
@@ -135,6 +138,15 @@ fetch(awsUrl)
                     station: station.properties.name
                 });
                 marker.addTo(overlays.temperature);
+            }
+        }
+            if (typeof station.properties.RH == "number") {
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.RH.toFixed(1),
+                    colors: COLORS.humidity,
+                    station: station.properties.name
+                 });
+             marker.addTo(overlays.humidity);
             }
         }
         // set map view to all stations
