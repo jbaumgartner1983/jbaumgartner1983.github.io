@@ -89,13 +89,13 @@ let drawBusStop = (geojsonData) => {
     })*/
 
 for (let config of OGDWIEN) {
-    console.log("Config:", config.data);
+    console.log("Config: ", config.data);
     fetch(config.data)
         .then(response => response.json())
         .then(geojsonData =>{
             console.log("Data: ", geojsonData);
             if (config.title == "Haltestellen Vienna Sightseeing") {
-                drawBusStop ();
+                drawBusStop (geojsonData);
             }
         })
 }
