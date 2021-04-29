@@ -48,6 +48,8 @@ overlays.busLines.addTo(map);
 overlays.busStops.addTo(map);
 overlays.pedAreas.addTo(map);
 
+let drawBusLine = 
+
 let drawBusStop = (geojsonData) => {
     L.geoJson(geojsonData, {
         onEachFeature: (feature, layer) => {
@@ -98,6 +100,10 @@ for (let config of OGDWIEN) {
             console.log("Data: ", geojsonData);
             if (config.title == "Haltestellen Vienna Sightseeing") {
                 drawBusStop (geojsonData);
+            }
+
+            else if (config.title == "Liniennetz Vienna Sightseeing") {
+                drawBusLine (geojsonData);
             }
         })
 }
