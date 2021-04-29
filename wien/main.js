@@ -102,7 +102,7 @@ let drawBusStop = (geojsonData) => {
         onEachFeature: (feature, layer) => {
             layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
             <hr>
-            Station: ${feature.properties,STAT_NAME}`)
+            Station: ${feature.properties.STAT_NAME}`)
         },
         pointToLayer: (geoJsonPoint, latlng) => {
             return L.marker(latlng, {
