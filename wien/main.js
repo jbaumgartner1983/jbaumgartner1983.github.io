@@ -52,8 +52,7 @@ let drawBusLine = (geojsonData) => {
     console.log("Bus Lines: ", geojsonData);
     L.geoJson(geojsonData, {
         style: (feature) => {
-            let col = "red";
-            col = COLORS.buslines(feature.properties.LINE_NAME);
+            let col = COLORS.buslines[feature.properties.LINE_NAME];
             return {
                 color: col
            
@@ -71,9 +70,9 @@ let drawBusLine = (geojsonData) => {
         onEachFeature: (feature, layer) => {
             layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
             <hr>
-            von ${feature.properties.FROM.NAME}<br>
+            von ${feature.properties.FROM_NAME}<br>
             nach ${feature.properties.TO_NAME}`)
-        }
+            }
         }).addTo(overlays.busLines);
     }
 let drawPedestrianAreas = (geojsonData) => {
@@ -104,20 +103,17 @@ let drawBusStop = (geojsonData) => {
             layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
             <hr>
             Station: ${feature.properties,STAT_NAME}`)
-
         },
         pointToLayer: (geoJsonPoint, latlng) => {
             return L.marker (latlng, {
                 icon: L.icon ({
                     iconUrl: "icons/busstop.png",
                     iconSize: [38, 38]
-
                 })
             })
         },
         attribution: '<a href= "https://data.wien.gv.at"> Stadt Wien</a>,<a href= "https://mapicons.mapsmarker.com">Map Icons Collection<a/>'
     }).addTo(overlays.busStops);
-
 }
 
 /*fetch("data/TOURISTIKHTSVSLOGD.json")
