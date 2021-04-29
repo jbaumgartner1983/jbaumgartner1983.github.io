@@ -48,12 +48,30 @@ overlays.busLines.addTo(map);
 overlays.busStops.addTo(map);
 overlays.pedAreas.addTo(map);
 
-let drawBusLine = 
+let drawBusLine = (geojsonData) => {
+    console.log("Bus Lines: ", geojsonData);
+    L.geoJson(geojsonData, {
+        style: (feature) => {
+            let col = "red";
+            if feature.properties.LINE_NAME == "Blue Line"){
+                col = "blue";
+            }
+            return {
+                color: col
+            }
+        },
+        onEachFeature: (feature, layer) => {
+            layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
+            <hr>
+            von ${feature.properties.FROM.NAME}<br>
+            nach ${feature.properties.TO_NAME}`)
+        }).addTo(overlays.busLindes);
+    }
 
 let drawBusStop = (geojsonData) => {
     L.geoJson(geojsonData, {
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(`strong>${feature.properties.LINE_NAM}</strong>
+            layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
             <hr>
             Station: ${feature.properties,STAT_NAME}`)
 
