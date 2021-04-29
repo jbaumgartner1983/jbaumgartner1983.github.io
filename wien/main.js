@@ -87,12 +87,12 @@ let drawPedestrianAreas = (geojsonData) => {
             }
         },
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(`strong> Fußgängerzone${feature.properties.ADRESSE}</strong>
+            layer.bindPopup(`strong> Fußgängerzone ${feature.properties.ADRESSE}</strong>
             <hr>
             ${feature.properties.ZEITRAUM}<br>
             ${feature.properties.AUSN_TEXT}
-`);
-        }
+            `);
+         }
         }).addTo(overlays.pedAreas);
     }
 
@@ -137,7 +137,7 @@ let drawBusStop = (geojsonData) => {
     })*/
 
 for (let config of OGDWIEN) {
-    console.log("Config: ", config.data);
+    //console.log("Config: ", config.data);
     fetch(config.data)
         .then(response => response.json())
         .then(geojsonData =>{
