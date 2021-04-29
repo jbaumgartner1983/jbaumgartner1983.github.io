@@ -55,15 +55,15 @@ let drawBusLine = (geojsonData) => {
             let col = COLORS.buslines[feature.properties.LINE_NAME];
             return {
                 color: col
-           
-          /*  if feature.properties.LINE_NAME == "Blue Line"){
-                col = COLORS.buslines.["Blue Line"];
-            }
 
-            if feature.properties.LINE_NAME == "Yellow Line"){
-                col = COLORS.buslines.["Yellow Line"];
+                /*  if feature.properties.LINE_NAME == "Blue Line"){
+                      col = COLORS.buslines.["Blue Line"];
+                  }
 
-            }*/
+                  if feature.properties.LINE_NAME == "Yellow Line"){
+                      col = COLORS.buslines.["Yellow Line"];
+
+                  }*/
 
             }
         },
@@ -72,9 +72,9 @@ let drawBusLine = (geojsonData) => {
             <hr>
             von ${feature.properties.FROM_NAME}<br>
             nach ${feature.properties.TO_NAME}`)
-            }
-        }).addTo(overlays.busLines);
-    }
+        }
+    }).addTo(overlays.busLines);
+}
 let drawPedestrianAreas = (geojsonData) => {
     console.log("Zone: ", geojsonData);
     L.geoJson(geojsonData, {
@@ -92,9 +92,9 @@ let drawPedestrianAreas = (geojsonData) => {
             ${feature.properties.ZEITRAUM}<br>
             ${feature.properties.AUSN_TEXT}
             `);
-         }
-        }).addTo(overlays.pedAreas);
-    }
+        }
+    }).addTo(overlays.pedAreas);
+}
 
 
 let drawBusStop = (geojsonData) => {
@@ -105,9 +105,9 @@ let drawBusStop = (geojsonData) => {
             Station: ${feature.properties,STAT_NAME}`)
         },
         pointToLayer: (geoJsonPoint, latlng) => {
-            return L.marker (latlng, {
-                icon: L.icon ({
-                    iconUrl: "icons/busstop.png",
+            return L.marker(latlng, {
+                icon: L.icon({
+                    iconUrl: 'icons/busstop.png',
                     iconSize: [38, 38]
                 })
             })
@@ -140,16 +140,14 @@ for (let config of OGDWIEN) {
     //console.log("Config: ", config.data);
     fetch(config.data)
         .then(response => response.json())
-        .then(geojsonData =>{
+        .then(geojsonData => {
             //console.log("Data: ", geojsonData);
             if (config.title == "Haltestellen Vienna Sightseeing") {
-                drawBusStop (geojsonData);
-            }
-            else if (config.title == "Liniennetz Vienna Sightseeing") {
-                drawBusLine (geojsonData);
-            }
-            else if (config.title == "Fupgängerzonen"){
+                drawBusStop(geojsonData);
+            } else if (config.title == "Liniennetz Vienna Sightseeing") {
+                drawBusLine(geojsonData);
+            } else if (config.title == "Fupgängerzonen") {
                 drawPedestrianAreas(geojsonDAta);
-                }
+            }
         })
 }
