@@ -109,7 +109,7 @@ fetch(awsUrl)
 
             let formattedDate = new Date(station.properties.date);
 
-            let direction = getDirections(station.porperties.WR, DIRECTIONS);
+            let direction = getDirection(station.properties.WR, DIRECTIONS);
 
             marker.bindPopup(`
                 
