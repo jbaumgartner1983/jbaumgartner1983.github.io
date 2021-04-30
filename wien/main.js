@@ -52,7 +52,7 @@ overlays.pedAreas.addTo(map);
 overlays.sightSeeing.addTo(map);
 
 let drawBusLine = (geojsonData) => {
-    console.log("Bus Lines: ", geojsonData);
+    console.log('Bus Lines: ', geojsonData);
     L.geoJson(geojsonData, {
         style: (feature) => {
             let col = COLORS.buslines[feature.properties.LINE_NAME];
@@ -71,15 +71,16 @@ let drawBusLine = (geojsonData) => {
             }
         },
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
+            layer.bindPopup(`<strong>${feature.properties.LINE_NAME}</strong>
             <hr>
             von ${feature.properties.FROM_NAME}<br>
             nach ${feature.properties.TO_NAME}`)
         }
     }).addTo(overlays.busLines);
 }
+
 let drawPedestrianAreas = (geojsonData) => {
-    console.log("Zone: ", geojsonData);
+    console.log('Zone: ', geojsonData);
     L.geoJson(geojsonData, {
         style: (feature) => {
             return {
@@ -90,9 +91,9 @@ let drawPedestrianAreas = (geojsonData) => {
             }
         },
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(`strong> Fußgängerzone ${feature.properties.ADRESSE}</strong>
+            layer.bindPopup(`<strong> Fußgängerzone ${feature.properties.ADRESSE}</strong>
             <hr>
-            ${feature.properties.ZEITRAUM || ""}<br>
+            ${feature.properties.ZEITRAUM || ""} <br>
             ${feature.properties.AUSN_TEXT || ""}
             `);
         },
@@ -104,7 +105,7 @@ let drawPedestrianAreas = (geojsonData) => {
 let drawBusStop = (geojsonData) => {
     L.geoJson(geojsonData, {
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(`strong>${feature.properties.LINE_NAME}</strong>
+            layer.bindPopup(`<strong>${feature.properties.LINE_NAME}</strong>
             <hr>
             Station: ${feature.properties.STAT_NAME}`)
         },
@@ -123,7 +124,7 @@ let drawBusStop = (geojsonData) => {
 let drawSightSeeing = (geojsonData) => {
     L.geoJson(geojsonData, {
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(`strong>${feature.properties.NAME}</strong>
+            layer.bindPopup(`<strong>${feature.properties.NAME}</strong>
             <hr>
             Sight: ${feature.properties.NAME}`)
         },
