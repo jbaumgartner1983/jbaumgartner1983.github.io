@@ -17,7 +17,8 @@ let baselayers = {
 let overlays = {
     busLines: L.featureGroup(),
     busStops: L.featureGroup(),
-    pedAreas: L.featureGroup() //Fußgängerzone
+    pedAreas: L.featureGroup(), //Fußgängerzone
+    sightSeeing: L.featureGroup()
 };
 
 // Karte initialisieren und auf Wiens Wikipedia Koordinate blicken
@@ -47,6 +48,7 @@ let layerControl = L.control.layers({
 overlays.busLines.addTo(map);
 overlays.busStops.addTo(map);
 overlays.pedAreas.addTo(map);
+overlays.sightSeeing.addTo(map);
 
 let drawBusLine = (geojsonData) => {
     console.log("Bus Lines: ", geojsonData);
