@@ -92,10 +92,11 @@ let drawPedestrianAreas = (geojsonData) => {
         onEachFeature: (feature, layer) => {
             layer.bindPopup(`strong> Fußgängerzone ${feature.properties.ADRESSE}</strong>
             <hr>
-            ${feature.properties.ZEITRAUM}<br>
-            ${feature.properties.AUSN_TEXT}
+            ${feature.properties.ZEITRAUM || ""}<br>
+            ${feature.properties.AUSN_TEXT || ""}
             `);
-        }
+        },
+        attribution: '<a href="https://data.wien.gv.at">Stadt Wien</a>'
     }).addTo(overlays.pedAreas);
 }
 
@@ -135,7 +136,7 @@ let drawSightSeeing = (geojsonData) => {
             })
         },
         attribution: '<a href= "https://data.wien.gv.at"> Stadt Wien</a>,<a href= "https://mapicons.mapsmarker.com">Map Icons Collection<a/>'
-    }).addTo(overlays.SightSeeing);
+    }).addTo(overlays.sightSeeing);
 }
 
 /*fetch("data/TOURISTIKHTSVSLOGD.json")
