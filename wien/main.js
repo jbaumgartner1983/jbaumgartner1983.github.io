@@ -191,9 +191,16 @@ L.hash(map);
 
 //reachability plugin
 // Initialise the reachability plugin
+
+let styleIntervals = (feature) => {
+    console.log(feature);
+
+};
+
 L.control.reachability({
     // add settings/options here
     apiKey: '5b3ce3597851110001cf62480aba529d7b634298afab148ab2bef03a',
+    styleFn: styleIntervals,
     drawButtonContent: '',
     drawButtonStyleClass: 'fa fa-pencil-alt fa-2x',
     deleteButtonContent: '',
