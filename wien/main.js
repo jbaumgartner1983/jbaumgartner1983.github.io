@@ -201,9 +201,9 @@ let styleIntervals = (feature) => {
     let range = feature.properties.Range;
     if (feature.properties.Measure === "time") {
         // Farbpalette
-        color = COLORS.minutes[range]);
+        color = COLORS.minutes[range];
     } else if (feature.properties.Measure === "distance") {
-        color = COLORS.kilometers[range]);
+        color = COLORS.kilometers[range];
     } else {
         color = "black";
     }
@@ -211,6 +211,7 @@ let styleIntervals = (feature) => {
         color: color,
         opacity: 0.5,
         fillOpacity: 0.2
+    };
 };
 
 L.control.reachability({
