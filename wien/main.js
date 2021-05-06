@@ -12,11 +12,9 @@ let baselayers = {
         L.tileLayer.provider("BasemapAT.overlay")
     ]), 
 };
-}
 
-//Minimap
-var mapforMini = L.tileLayer.provider("BasemapAT.basemap");
-var miniMap = new L.Control.MiniMap(mapforMini).addTo(map);
+
+
 
 // Overlays für die Themen zum Ein- und Ausschalten definieren
 let overlays = {
@@ -35,6 +33,10 @@ let map = L.map("map", {
         baselayers.grau
     ]
 });
+
+//Minimap
+var mapforMini = L.tileLayer.provider("BasemapAT.basemap");
+var miniMap = new L.Control.MiniMap(mapforMini).addTo(map);
 
 // Kartenhintergründe und Overlays zur Layer-Control hinzufügen
 let layerControl = L.control.layers({
