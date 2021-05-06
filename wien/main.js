@@ -10,8 +10,13 @@ let baselayers = {
     ortho_overlay: L.layerGroup([
         L.tileLayer.provider("BasemapAT.orthofoto"),
         L.tileLayer.provider("BasemapAT.overlay")
-    ]), var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+    ]), 
 };
+}
+
+//Minimap
+var mapforMini = L.tileLayer.provider("BasemapAT.basemap");
+var miniMap = new L.Control.MiniMap(mapforMini).addTo(map);
 
 // Overlays für die Themen zum Ein- und Ausschalten definieren
 let overlays = {
