@@ -31,13 +31,6 @@ let map = L.map("map", {
     ]
 });
 
-//Minimap
-var miniMap = new L.Control.MiniMap(
-    L.tileLayer.provider("BasemapAT.basemap"), {
-        toggleDisplay: true,
-        minimized: false
-    }
-).addTo(map);
 
 // Kartenhintergründe und Overlays zur Layer-Control hinzufügen
 let layerControl = L.control.layers({
@@ -188,6 +181,15 @@ for (let config of OGDWIEN) {
 }
 // leaflet hash
 L.hash(map);
+
+//Minimap
+var miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("BasemapAT.basemap"), {
+        toggleDisplay: true,
+        minimized: false
+    }
+).addTo(map);
+
 
 //reachability plugin
 // Initialise the reachability plugin
