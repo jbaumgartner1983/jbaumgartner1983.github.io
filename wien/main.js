@@ -207,7 +207,10 @@ let styleIntervals = (feature) => {
     } else {
         color = "black";
     }
-
+    return {
+        color: color,
+        opacity: 0.5,
+        fillOpacity: 0.2
 };
 
 L.control.reachability({
