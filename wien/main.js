@@ -190,8 +190,8 @@ for (let config of OGDWIEN) {
 L.hash(map);
 
 //reachability plugin
-        // Initialise the reachability plugin
-        L.control.reachability({
-            // add settings/options here
-            apiKey: '5b3ce3597851110001cf62480aba529d7b634298afab148ab2bef03a'
-        }).addTo(map);
+// Initialise the reachability plugin
+    L.control.reachability({
+    // add settings/options here
+    apiKey: '5b3ce3597851110001cf62480aba529d7b634298afab148ab2bef03a'
+}).addTo(map);
