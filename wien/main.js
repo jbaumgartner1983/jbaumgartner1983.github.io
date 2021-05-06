@@ -195,7 +195,8 @@ var miniMap = new L.Control.MiniMap(
 // Initialise the reachability plugin
 
 let styleIntervals = (feature) => {
-    console.log(feature);
+    console.log(feature.properties);
+    console.log(feature.properties.Measure);
 
 };
 
