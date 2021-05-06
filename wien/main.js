@@ -13,9 +13,6 @@ let baselayers = {
     ]), 
 };
 
-
-
-
 // Overlays für die Themen zum Ein- und Ausschalten definieren
 let overlays = {
     busLines: L.featureGroup(),
@@ -35,8 +32,12 @@ let map = L.map("map", {
 });
 
 //Minimap
-var mapforMini = L.tileLayer.provider("BasemapAT.basemap");
-var miniMap = new L.Control.MiniMap(mapforMini).addTo(map);
+var miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("BasemapAT.basemap"), {
+        toggleDisplay: true,
+        minimized: false
+    }
+).addTo(map);
 
 // Kartenhintergründe und Overlays zur Layer-Control hinzufügen
 let layerControl = L.control.layers({
