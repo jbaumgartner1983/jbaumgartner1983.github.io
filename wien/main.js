@@ -178,4 +178,4 @@ for (let config of OGDWIEN) {
         })
 }
 // leaflet hash
-var hash = new L.Hash(map);
+L.hash(map);
