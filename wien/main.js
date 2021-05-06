@@ -195,8 +195,18 @@ var miniMap = new L.Control.MiniMap(
 // Initialise the reachability plugin
 
 let styleIntervals = (feature) => {
-    console.log(feature.properties);
-    console.log(feature.properties.Measure);
+    //console.log(feature.properties);
+    //console.log(feature.properties.Measure)
+    let color = "";
+    let range = feature.properties.Range;
+    if (feature.properties.Measure === "time") {
+        // Farbpalette
+        color = COLORS.minutes[range]);
+    } else if (feature.properties.Measure === "distance") {
+        color = COLORS.kilometers[range]);
+    } else {
+        color = "black";
+    }
 
 };
 
