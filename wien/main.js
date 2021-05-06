@@ -10,7 +10,7 @@ let baselayers = {
     ortho_overlay: L.layerGroup([
         L.tileLayer.provider("BasemapAT.orthofoto"),
         L.tileLayer.provider("BasemapAT.overlay")
-    ]), 
+    ]),
 };
 
 // Overlays für die Themen zum Ein- und Ausschalten definieren
@@ -191,7 +191,23 @@ L.hash(map);
 
 //reachability plugin
 // Initialise the reachability plugin
-    L.control.reachability({
-    // add settings/options here
-    apiKey: '5b3ce3597851110001cf62480aba529d7b634298afab148ab2bef03a'
+L.control.reachability({
+// add settings/options here
+apiKey: '5b3ce3597851110001cf62480aba529d7b634298afab148ab2bef03a'
+drawButtonStyleClass: 'fa fa-pencil',
+deleteButtonContent: '',
+deleteButtonStyleClass: 'fa fa-trash',
+distanceButtonContent: '',
+distanceButtonStyleClass: 'fa fa-road',
+timeButtonContent: '',
+timeButtonStyleClass: 'fa fa-clock-o',
+travelModeButton1Content: '',
+travelModeButton1StyleClass: 'fa fa-car',
+travelModeButton2Content: '',
+travelModeButton2StyleClass: 'fa fa-bicycle',
+travelModeButton3Content: '',
+travelModeButton3StyleClass: 'fa fa-male',
+travelModeButton4Content: '',
+travelModeButton4StyleClass: 'fa fa-wheelchair-alt'
+}).addTo(map);
 }).addTo(map);
