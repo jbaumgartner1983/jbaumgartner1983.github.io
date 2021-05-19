@@ -3,6 +3,7 @@ let basemapGray = L.tileLayer.provider("BasemapAT.grau");
 
 let map = L.map("map", {
     center: [47, 11],
+    fullscreenControl: true,
     zoom: 9,
     layers: [
         basemapGray
