@@ -12,32 +12,32 @@ console.log(stop.lat);
 console.log(stop.lng);
 console.log(stop.wikipedia);*/
 
-const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
+const map = L.map("map", { //objekt erstellt, liste einfürgen []
     //center: [stop.lat, stop.lng], //liste mit koordinaten, lat und long koordinaten
     //zoom: 13, //1 ist die ganze Welt
     fullscreenControl: true,
-    layers: [              // ist ein array
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")  //server {s} von open street map, {z} ist der zoomlayer
-    ]  
+    layers: [ // ist ein array
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png") //server {s} von open street map, {z} ist der zoomlayer
+    ]
 });
 
 let nav = document.querySelector("#navigation");
-console.log("Navigation HTML Element: ",nav);
+console.log("Navigation HTML Element: ", nav);
 
 //console.log(ROUTE)
 
-ROUTE.sort((stop1,stop2) => {
+ROUTE.sort((stop1, stop2) => {
     if (stop1.nr > stop2.nr) {
         return 1;
     } else {
-          return -1;
+        return -1;
     }
 });
 
-for (let entry of ROUTE) {       //for Schleife erstellen
-   // console.log(entry);
+for (let entry of ROUTE) { //for Schleife erstellen
+    // console.log(entry);
 
-   nav.innerHTML += `<option value="${entry.user}"> Stop ${entry.nr}: ${entry.name}</option>`;
+    nav.innerHTML += `<option value="${entry.user}"> Stop ${entry.nr}: ${entry.name}</option>`;
     let mrk = L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(`<h4>Stop ${entry.nr}: ${entry.name} </h4>
 <p><a href = "${entry.wikipedia}"><i class= "fas fa-external-link-alt mr-3"></i>Read about stop in Wikipedia</a>
@@ -45,12 +45,12 @@ for (let entry of ROUTE) {       //for Schleife erstellen
 `);
 
     if (entry.nr == 1) {
-        map.setView ([entry.lat, entry.lng], 13);
+        map.setView([entry.lat, entry.lng], 13);
         mrk.openPopup();
     }
 }
 
-nav.selectedIndex = 1-1;
+nav.selectedIndex = 1 - 1;
 nav.onchange = (evt) => {
     console.log(evt.target.selectedIndex);
     let selected = evt.target.selectedIndex;
@@ -60,7 +60,7 @@ nav.onchange = (evt) => {
     let link = `https://${username}.github.io/nz/index.html`;
     window.location.href = link;
     console.log(link);
-    }
+}
 console.log(document.querySelector("#map"));
 
 //64.3137, -20.2995

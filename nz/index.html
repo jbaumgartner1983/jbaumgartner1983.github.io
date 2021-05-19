@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto+Condensed:ital@0;1&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="main.css">
-    <title>New Zealand Journey - Christchuch</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto+Condensed:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <title>New Zealand Journey - Christchuch</title>
 
-    
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet-src.min.js"></script>
 
-    <link rel="stylesheet" href="main.css">
-    <script src="route.js"></script>
-    <script defer src="main.js"></script>
 
-   <!-- Leaflet fullscreen -->   
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.css" integrity="sha512-KQk/GTCcAywe4iEOhnZ6ZmWDNv/3NvOE6f0iUvrNVCX/oD7+sPXAeDP90aOX3EXHmerC6gDYUlUBaSd4hxjWEw==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet-src.min.js"></script>
 
-    <!-- Leaflet stylesheet fullscreen-->  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.js" integrity="sha512-TaNrKSd5TOm4PfgJMFYkDpQ1X8GmqXBlh+Kmk83Mfrcx9sjTzqI1zcZd0n0xpdJevfPL7voAcbblrUaYx+LM1g==" crossorigin="anonymous"></script> 
+  <link rel="stylesheet" href="main.css">
+  <script src="route.js"></script>
+  <script defer src="main.js"></script>
 
-     <!--leaflet minimap -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css" integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg==" crossorigin="anonymous" />
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js" integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g==" crossorigin="anonymous"></script>
- 
-  
+  <!-- Leaflet fullscreen -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.css"
+    integrity="sha512-KQk/GTCcAywe4iEOhnZ6ZmWDNv/3NvOE6f0iUvrNVCX/oD7+sPXAeDP90aOX3EXHmerC6gDYUlUBaSd4hxjWEw=="
+    crossorigin="anonymous" />
+
+  <!-- Leaflet stylesheet fullscreen-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.js"
+    integrity="sha512-TaNrKSd5TOm4PfgJMFYkDpQ1X8GmqXBlh+Kmk83Mfrcx9sjTzqI1zcZd0n0xpdJevfPL7voAcbblrUaYx+LM1g=="
+    crossorigin="anonymous"></script>
+
+  <!--leaflet minimap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
+    integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
+    crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js"
+    integrity="sha512-WL3nAJlWFKoDShduxQRyY3wkBnQsINXdIfWIW48ZaPgYz1wYNnxIwFMMgigzSgjNBC2WWZ8Y8/sSyUU6abuF0g=="
+    crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
   <header>
-    <img class="banner" src= "images/header.jpg" alt = "View of the Ocean">
-    <p class="white mr-3"><a href="https://www.pexels.com/de-de/foto/gewasser-unter-blauem-himmel-6335643/" target="_blank">Ben Sharples</a></p>
+    <img class="banner" src="images/header.jpg" alt="View of the Ocean">
+    <p class="white mr-3"><a href="https://www.pexels.com/de-de/foto/gewasser-unter-blauem-himmel-6335643/"
+        target="_blank">Ben Sharples</a></p>
     <h1>New Zealand Journey: Christchurch</h1>
     <nav>
-        <a href="https://www.pexels.com/de-de/suche/kangaroo/">
-          <img src="images/user.jpg" alt = "Kangaroo"/>
-        </a>
-        <address>
-          <a href= "mailto:julia.baumgartner@student.uibk.ac.at"><i class="fas fa-envelope-square mr-3"></i>Julia Baumgartner</a>
-          <a href="https://githup.com/webmapping"><i class="fab fa-github mr-3"></i>githup Repo</a>
-        </address>
-     </nav>
-  
+      <a href="https://www.pexels.com/de-de/suche/kangaroo/">
+        <img src="images/user.jpg" alt="Kangaroo" />
+      </a>
+      <address>
+        <a href="mailto:julia.baumgartner@student.uibk.ac.at"><i class="fas fa-envelope-square mr-3"></i>Julia
+          Baumgartner</a>
+        <a href="https://githup.com/webmapping"><i class="fab fa-github mr-3"></i>githup Repo</a>
+      </address>
+    </nav>
+
     <!-- header-Element mit: -->
-        <!-- Bild images/header.jpg 1280x365 Pixel von pixabay oder wikimedia mit sprechendem alt-Text -->
-        <!-- Absatz mit Link zur Bildquelle (Bildautor als Linktext) -->
-        <!-- Überschrift 1 "New Zealand Journey: Etappentitel" -->
-        <!-- nav-Element mit: -->
-            <!-- Bild images/user.jpg 100x100 Pixel von euch, pixabay oder wikimedia mit sprechendem alt-Text - Bild als Link zur Bildquelle -->
-            <!-- address-Element mit: -->
-                <!-- E-Maillink mit Name als Linktext -->
-                <!-- Link zum github-Repo (Beides getrennt durch " - ")-->
+    <!-- Bild images/header.jpg 1280x365 Pixel von pixabay oder wikimedia mit sprechendem alt-Text -->
+    <!-- Absatz mit Link zur Bildquelle (Bildautor als Linktext) -->
+    <!-- Überschrift 1 "New Zealand Journey: Etappentitel" -->
+    <!-- nav-Element mit: -->
+    <!-- Bild images/user.jpg 100x100 Pixel von euch, pixabay oder wikimedia mit sprechendem alt-Text - Bild als Link zur Bildquelle -->
+    <!-- address-Element mit: -->
+    <!-- E-Maillink mit Name als Linktext -->
+    <!-- Link zum github-Repo (Beides getrennt durch " - ")-->
   </header>
   <hr>
   <!-- horizontale Linie -->
@@ -63,19 +75,27 @@
 
     <h1>Christchurch Botanic Gardens</h1>
     <p>
-      The Christchurch Botanic Gardens, located in the central city of Christchurch, New Zealand, were founded in 1863 when an English oak was planted to commemorate the solemnisation of the marriage of Prince Albert and Princess Alexandra of Denmark. The Gardens sprawl over an area of 21 hectares and lie adjacent to the loop of the Avon River next to Hagley Park. The Christchurch Botanic Gardens have a variety of collections of exotic and local plants of New Zealand, several conservatories, a nursery, playground and Climatological Station. <br>
+      The Christchurch Botanic Gardens, located in the central city of Christchurch, New Zealand, were founded in 1863
+      when an English oak was planted to commemorate the solemnisation of the marriage of Prince Albert and Princess
+      Alexandra of Denmark. The Gardens sprawl over an area of 21 hectares and lie adjacent to the loop of the Avon
+      River next to Hagley Park. The Christchurch Botanic Gardens have a variety of collections of exotic and local
+      plants of New Zealand, several conservatories, a nursery, playground and Climatological Station. <br>
       (Quelle: <a href="https://en.wikipedia.org/wiki/Christchurch_Botanic_Gardens">Wikipedia</a>)
     </p>
-  
+
     <h2>Hobbit House</h2>
     <figure>
       <img src="images/attraction1.jpg" alt="House of a Hobbit">
-      <figcaption><i class="fas fa-camera-retro mr-3"></i>A Hobbit House. Bild: <a href="https://www.pexels.com/de-de/foto/brown-und-orange-house-2259917/"></i>Bence Kondor</a></figcaption>
+      <figcaption><i class="fas fa-camera-retro mr-3"></i>A Hobbit House. Bild: <a
+          href="https://www.pexels.com/de-de/foto/brown-und-orange-house-2259917/"></i>Bence Kondor</a></figcaption>
     </figure>
 
     <p>
-    It’s time to feel like a kid again… Woodlyn Park offers an imaginative selection of accommodation set on rolling lush green hills in a farm setting in the Waikato. The resourceful owners have built Hobbit Houses into low hills and restored genuine old 19th and 20th Century working machines into cleverly constructed units. All created for an enjoyable and memorable stay…
-    (Quelle: <a href="https://staytopia.com/hobbit-hotel-new-zealand">Sleep in a Hobbit Hotel</a>)
+      It’s time to feel like a kid again… Woodlyn Park offers an imaginative selection of accommodation set on rolling
+      lush green hills in a farm setting in the Waikato. The resourceful owners have built Hobbit Houses into low hills
+      and restored genuine old 19th and 20th Century working machines into cleverly constructed units. All created for
+      an enjoyable and memorable stay…
+      (Quelle: <a href="https://staytopia.com/hobbit-hotel-new-zealand">Sleep in a Hobbit Hotel</a>)
     </p>
 
     <h3>Overview Map</h3>
@@ -87,48 +107,53 @@
     </select>
 
     <h3>More interesting links</h3>
-     <ul>
+    <ul>
       <li><a href="https://de.wikipedia.org/wiki/ChristChurch_Cathedral">ChristChurch Cathedral</a></li>
       <li><a href="https://de.wikipedia.org/wiki/Canterbury_Museum">Canterbury Musem</a></li>
       <li><a href="https://de.wikipedia.org/wiki/World_Buskers_Festival">World Buskers Festival</a></li>
       <li><a href="https://de.wikipedia.org/wiki/Stra%C3%9Fenbahn_Christchurch">Straßenbahn Christchurch</a></li>
-     </ul>
-    
+    </ul>
+
     <!-- main-Element mit: -->
-        <!-- Überschrift 1 mit Etappentitel und "Teaser" -->
-        <!-- Absatz mit Beschreibung der Etappe aus der Wikipedia mit Link zur Quelle bei Wikipedia (Quelle: Link) -->
+    <!-- Überschrift 1 mit Etappentitel und "Teaser" -->
+    <!-- Absatz mit Beschreibung der Etappe aus der Wikipedia mit Link zur Quelle bei Wikipedia (Quelle: Link) -->
 
-        <!-- Überschrift 2 für ein Bild passend zur Etappe -->
-        <!-- Bild als figure-Element mit: -->
-            <!-- Bild images/attraction.jpg 900x600px und sprechendem alt-Text -->
-            <!-- Bildunterschrift als figcaption-Element mit Link auf Bildquelle und BildautorIn -->
-        <!-- Absatz mit Beschreibung des Bildes aus der Wikipedia mit Link zur Quelle bei Wikipedia (Quelle: Link) -->
+    <!-- Überschrift 2 für ein Bild passend zur Etappe -->
+    <!-- Bild als figure-Element mit: -->
+    <!-- Bild images/attraction.jpg 900x600px und sprechendem alt-Text -->
+    <!-- Bildunterschrift als figcaption-Element mit Link auf Bildquelle und BildautorIn -->
+    <!-- Absatz mit Beschreibung des Bildes aus der Wikipedia mit Link zur Quelle bei Wikipedia (Quelle: Link) -->
 
-        <!-- Überschrift 3 mit dem Inhalt "Overview map" -->
-        <!-- div-Element ohne Inhalt -->
+    <!-- Überschrift 3 mit dem Inhalt "Overview map" -->
+    <!-- div-Element ohne Inhalt -->
 
-        <!-- Überschrift 3 mit dem Inhalt "Links" -->
-        <!-- ungeordnete Liste mit mindestens 4 Links passend zum Thema der Etappe -->
-</main>
-    <!-- horizontale Linie -->
+    <!-- Überschrift 3 mit dem Inhalt "Links" -->
+    <!-- ungeordnete Liste mit mindestens 4 Links passend zum Thema der Etappe -->
+  </main>
+  <!-- horizontale Linie -->
 
-<hr>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <hr>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
 
-<footer>
-  <nav>
+  <footer>
+    <nav>
+      <br>
+      <a class="back" href="https://sandraleutner.github.io/nz/index.html">Auckland<i
+          class="fas fa-backward mr-3 ml-3"></i></a>
+      <a class="next" href="https://rafael-i6k.github.io/nz/index.html"><i class="fas fa-forward mr-3 ml-3"></i>Lake
+        Tekapo</a>
+      <br>
+      <!-- footer-Element mit: -->
+      <!-- nav-Element mit: -->
+      <!-- Link zur vorhergehenden Etappe nach dem Muster https://username.github.io/nz/ - Linktext ist der Name der Etappe (username siehe Etappenverteilung) -->
+      <!-- Link zur nächsten Etappe nach dem Muster https://username.github.io/nz/ - Linktext ist der Name der Etappe (username siehe Etappenverteilung) -->
+    </nav>
     <br>
-    <a class= "back" href="https://sandraleutner.github.io/nz/index.html">Auckland<i class="fas fa-backward mr-3 ml-3"></i></a>
-    <a class= "next" href="https://rafael-i6k.github.io/nz/index.html"><i class="fas fa-forward mr-3 ml-3"></i>Lake Tekapo</a>
-    <br>
-    <!-- footer-Element mit: -->
-        <!-- nav-Element mit: -->
-            <!-- Link zur vorhergehenden Etappe nach dem Muster https://username.github.io/nz/ - Linktext ist der Name der Etappe (username siehe Etappenverteilung) -->
-            <!-- Link zur nächsten Etappe nach dem Muster https://username.github.io/nz/ - Linktext ist der Name der Etappe (username siehe Etappenverteilung) -->
-  </nav>
-  <br>
-</footer>
+  </footer>
 
 </body>
+
 </html>
