@@ -15,6 +15,7 @@ console.log(stop.wikipedia);*/
 const map = L.map ("map", {  //objekt erstellt, liste einfürgen []
     //center: [stop.lat, stop.lng], //liste mit koordinaten, lat und long koordinaten
     //zoom: 13, //1 ist die ganze Welt
+    fullscreenControl: true,
     layers: [              // ist ein array
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")  //server {s} von open street map, {z} ist der zoomlayer
     ]  
