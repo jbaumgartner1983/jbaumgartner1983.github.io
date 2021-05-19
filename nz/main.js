@@ -65,3 +65,20 @@ console.log(document.querySelector("#map"));
 //64.3137, -20.2995
 //console.log(document.querySelector("#map"));
 //<option value="jbaumgartner1983">Geysire</option>
+
+//Minimap
+var miniMap = new L.Control.MiniMap(
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"), {
+        toggleDisplay: true,
+        minimized: false
+    }
+).addTo(map);
+
+/*
+let map = L.map("map", {
+    fullscreenControl: true, //Auswahl Vollbild für die Karte
+    center: [-43.53, 172.62], //
+    zoom: 13,
+    layers: [
+        tileLayer
+    ]}*/
