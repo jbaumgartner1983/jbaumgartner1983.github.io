@@ -67,8 +67,18 @@ const drawTrack = (nr) => {
         console.log("loaded gpx");
         map.fitBounds(gpxTrack.getBounds()) //zoomt direkt auf die Strecke
     }); //pop up: name vom track und min höhe max höhe, total_dist
+   
+    gpxTrack.bindPopup(`
+                
+    <h3>${gpxTrack.get_name()}</h3>
+    <ul>
+    <li>Streckenlänge: ${gpxTrack.get_distance()}</li>
+    <li>tiefster Punkt: ${gpxTrack.get_elevation()}</li>
+    <li>höchster Punkt: ${{gpxTrack.get_elevation()}} C</li>
     
-
+    </ul>
+    
+    `);
 };
 
 const selectedTrack = 10;
