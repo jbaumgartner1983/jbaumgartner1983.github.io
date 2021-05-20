@@ -55,7 +55,7 @@ const elevationControl = L.control.elevation({
 const drawTrack = (nr) => {
     console.log("Track: ", nr);
     let gpxTrack = new L.GPX(`tracks/${nr}.gpx`, {
-        async: true,
+        async: true, //asynchron laden
         marker_options: {
             startIconUrl: `icons/number_${nr}.png`,
             endIconUrl: 'icons/finish.png',
@@ -92,3 +92,5 @@ const drawTrack = (nr) => {
 };
 const selectedTrack = 10;
 drawTrack(selectedTrack); //der track wird angezeicht
+
+console.log("biketirol json: ", BIKETIROL);
