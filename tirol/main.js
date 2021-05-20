@@ -98,12 +98,12 @@ drawTrack(selectedTrack); //der track wird angezeicht
 //console.log("biketirol json: ", BIKETIROL);
 let pulldown = document.querySelector("#pulldown");
 //console.log("pulldow: ", pulldown);
-let selected = "";
+let selected = '';
 for (let track of BIKETIROL) { //pulldown menü erstellen, += immer eine option angehängt und nichts überschrieben, nummer und name
     if (selectedTrack == track.nr) {
         selected = "selected";
     } else {
-        selected = "";
+        selected = '';
 
     }
 
