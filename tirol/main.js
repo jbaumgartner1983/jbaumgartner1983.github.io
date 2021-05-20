@@ -46,9 +46,9 @@ overlays.tracks.addTo(map);
 // etappe 10, Kufstein - Kössen
 //Höhenprofil
 const elevationControl = L.control.elevation({
-        elevationDiv: "#profile",
-        followMarker: false,
-        theme: "lime-theme",
+    elevationDiv: "#profile",
+    followMarker: false,
+    theme: "lime-theme",
 }).addTo(map);
 
 
@@ -60,23 +60,23 @@ const drawTrack = (nr) => {
             startIconUrl: `icons/number_${nr}.png`,
             endIconUrl: 'icons/finish.png',
             shadowUrl: null,
-          },
-          polyline_options: {
+        },
+        polyline_options: {
             color: "black",
-            dashArray: [2, 5 ], //strichlierte Linie
+            dashArray: [2, 5], //strichlierte Linie
             opacity: 0.75,
             weight: 3,
             lineCap: 'round'
-          }
+        }
 
     }).addTo(overlays.tracks);
-    gpxTrack.on("loaded", ()=> {
+    gpxTrack.on("loaded", () => {
         console.log("loaded gpx");
         map.fitBounds(gpxTrack.getBounds()); //zoomt direkt auf die Strecke
         console.log('Track name: ', gpxTrack.get_distance());
-   //pop up: name vom track und min höhe max höhe, total_dist
-   
-    gpxTrack.bindPopup(`         
+        //pop up: name vom track und min höhe max höhe, total_dist
+
+        gpxTrack.bindPopup(`         
     <h3>${gpxTrack.get_name()}</h3>
     <ul>
         <li>Streckenlänge: ${gpxTrack.get_distance()} m</li>
@@ -86,9 +86,9 @@ const drawTrack = (nr) => {
         <li>Höhenmeter bergab: ${gpxTrack.get_elevation_loss()} m</li>
     </ul>
         `);
-    }); 
+    });
 
-elevationControl.load(`tracks/${nr}.gpx`);
+    elevationControl.load(`tracks/${nr}.gpx`);
 };
 const selectedTrack = 10;
-drawTrack(selectedTrack);
+drawTrack(selectedTrack); //der track wird angezeicht
