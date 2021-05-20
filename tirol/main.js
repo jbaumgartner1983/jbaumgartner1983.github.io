@@ -87,8 +87,8 @@ const drawTrack = (nr) => {
     </ul>
         `);
     }); 
-};
-elevationControl.load(`tracks/${nr}.gpx`);
 
+elevationControl.load(`tracks/${nr}.gpx`);
+};
 const selectedTrack = 10;
 drawTrack(selectedTrack);
