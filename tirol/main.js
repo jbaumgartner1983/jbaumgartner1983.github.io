@@ -94,3 +94,16 @@ const selectedTrack = 10;
 drawTrack(selectedTrack); //der track wird angezeicht
 
 console.log("biketirol json: ", BIKETIROL);
+let pulldown = document.querySelector("#pulldown");
+console.log("pulldow: ", pulldown);
+let selected = "";
+for (let track of BIKETIROL) { //pulldown menü erstellen, += immer eine option angehängt und nichts überschrieben, nummer und name
+    if (selctedTrack == track.nr) {
+        selected = "selected";
+    } else {
+        selected = "";
+        
+    }
+
+    pulldown.innerHTML += `<option value="${selected}">${track.nr}: ${track.etappe}</option>`;
+}
