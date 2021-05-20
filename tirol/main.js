@@ -56,7 +56,7 @@ const drawTrack = (nr) => {
           },
           polyline_options: {
             color: "black",
-            dashArray: [2, 5 ],
+            dashArray: [2, 5 ], //strichlierte Linie
             opacity: 0.75,
             weight: 3,
             lineCap: 'round'
@@ -65,8 +65,10 @@ const drawTrack = (nr) => {
     }).addTo(overlays.tracks);
     gpxTrack.on("loaded", ()=> {
         console.log("loaded gpx");
-        map.fitBounds(gpxTrack.getBounds())
-    })
+        map.fitBounds(gpxTrack.getBounds()) //zoomt direkt auf die Strecke
+    }); //pop up: name vom track und min höhe max höhe, total_dist
+    
+
 };
 
 const selectedTrack = 10;
