@@ -47,6 +47,7 @@ overlays.tracks.addTo(map);
 //Höhenprofil
 const elevationControl = L.control.elevation({
         elevationDiv: "#profile",
+        followMarker: false,
 }).addTo(map);
 
 
@@ -78,9 +79,10 @@ const drawTrack = (nr) => {
     <h3>${gpxTrack.get_name()}</h3>
     <ul>
     <li>Streckenlänge: ${gpxTrack.get_distance()}</li>
-    <li>tiefster Punkt: ${gpxTrack.get_elevation()}</li>
-    <li>höchster Punkt: ${{gpxTrack.get_elevation()}} C</li>
-    
+    <li>tiefster Punkt: ${gpxTrack.get_elevation_deep()}</li>
+    <li>höchster Punkt: ${{gpxTrack.get_elevation_high()}} C</li>
+    <li>Höhenmeter bergauf: ${{gpxTrack.get_elevation()}} C</li>
+    <li>Höhenmeter bergab: ${{gpxTrack.get_elevation()}} C</li>
     </ul>
     
     `);
