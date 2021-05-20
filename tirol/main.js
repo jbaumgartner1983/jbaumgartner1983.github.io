@@ -73,9 +73,9 @@ const drawTrack = (nr) => {
 
     }).addTo(overlays.tracks);
     gpxTrack.on("loaded", () => {
-        console.log("loaded gpx");
+        //console.log("loaded gpx");
         map.fitBounds(gpxTrack.getBounds()); //zoomt direkt auf die Strecke
-        console.log('Track name: ', gpxTrack.get_distance());
+        //console.log('Track name: ', gpxTrack.get_distance());
         //pop up: name vom track und min höhe max höhe, total_dist
 
         gpxTrack.bindPopup(`         
