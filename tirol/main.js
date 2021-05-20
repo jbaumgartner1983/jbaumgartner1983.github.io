@@ -63,6 +63,10 @@ const drawTrack = (nr) => {
           }
 
     }).addTo(overlays.tracks);
+    gpxTrack.on("loaded", ()=> {
+        console.log("loaded gpx");
+        map.fitBounds(gpxTrack.getBounds())
+    })
 };
 
 const selectedTrack = 10;
