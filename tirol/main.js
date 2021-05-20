@@ -42,3 +42,16 @@ let layerControl = L.control.layers({
 
 // Overlay mit GPX-Track anzeigen
 overlays.tracks.addTo(map);
+
+// etappe 10, Kufstein - Kössen
+
+const drawTrack = (nr) => {
+    console.log("Track: ", nr);
+    let gpxTrack = new L.GPX(`tracks/${nr}.gpx`, {
+        async: true,
+
+    }).addTo(overlays.tracks);
+};
+
+const selectedTrack = 10;
+drawTrack(selectedTrack);
