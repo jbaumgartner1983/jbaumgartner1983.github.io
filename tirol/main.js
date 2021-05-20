@@ -44,6 +44,11 @@ let layerControl = L.control.layers({
 overlays.tracks.addTo(map);
 
 // etappe 10, Kufstein - Kössen
+//Höhenprofil
+const elevationControl = L.control.elevation({
+        elevationDiv: "#profile",
+}).addTo(map);
+
 
 const drawTrack = (nr) => {
     console.log("Track: ", nr);
@@ -80,6 +85,7 @@ const drawTrack = (nr) => {
     
     `);
 };
+elevationControl.load(`tracks/${nr}.gpx);
 
 const selectedTrack = 10;
 drawTrack(selectedTrack);
