@@ -53,6 +53,13 @@ const drawTrack = (nr) => {
             startIconUrl: `icons/number_${nr}.png`,
             endIconUrl: 'icons/finish.png',
             shadowUrl: null,
+          },
+          polyline_options: {
+            color: "black",
+            dashArray: [2, 5 ],
+            opacity: 0.75,
+            weight: 3,
+            lineCap: 'round'
           }
 
     }).addTo(overlays.tracks);
