@@ -54,6 +54,83 @@ const elevationControl = L.control.elevation({
     theme: "lime-theme",
 }).addTo(map);
 
+// Wikipedia Artikel Zeichnen
+let articleDrawn = {};
+const drawWikipedia = (bounds) => {
+    //console.log(bounds);
+    let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${bounds.getNorth()}&south=${bounds.getSouth()}&east=${bounds.getEast()}&west=${bounds.getWest()}&username=webmapping&lang=de&maxRows=30`;
+    //console.log(url);
+
+    let icons = {
+        adm1st: "wikipedia_administration.png",
+        adm2nd: "wikipedia_administration.png",
+        adm3rd: "wikipedia_administration.png",
+        airport: "wikipedia_helicopter.png",
+        city: "wikipedia_smallcity.png",
+        glacier: "wikipedia_glacier-2.png",
+        landmark: "wikipedia_landmark.png",
+        railwaystation: "wikipedia_train.png",
+        river: "wikipedia_river-2.png",
+        mountain: "wikipedia_mountains.png",
+        waterbody: "wikipedia_lake.png",
+        default: "wikipedia_information.png",
+    };
+
+    // URL bei geonames.org aufrufen und JSO-Daten abholen
+    fetch(url).then(
+        response => response.json()
+    ).then(jsonData => {
+        //console.log(jsonData);
+
+        // Artikel Marker erzeugen
+        for (let article of jsonData.geonames) {
+            // habe ich den Artikel schon gezeichnet?
+            if (articleDrawn[article.wikipediaUrl]) {
+                // Ja, nicht noch einal zeichnen
+                //console.log("schon gesehen", article.wikipediaUrl);
+                continue;
+            } else {
+                articleDrawn[article.wikipediaUrl] = true;
+            }
+
+            // welches Icon soll verwendet werden?
+            if (icons[article.feature]) {
+                // ein Bekanntes
+            } else {
+                // unser generisches Info-Icon
+                article.feature = "default";
+            }
+
+            let mrk = L.marker([article.lat, article.lng], {
+                icon: L.icon({
+                    iconUrl: `icons/${icons[article.feature]}`,
+                    iconSize: [32, 37],
+                    iconAnchor: [16, 37],
+                    popupAnchor: [0, -37],
+                })
+            });
+            mrk.addTo(overlays.wikipedia);
+
+            // optionales Bild definieren
+            let img = "";
+            if (article.thumbnailImg) {
+                img = `<img src="${article.thumbnailImg}" alt="thumbnail">`;
+            }
+
+            // Popup definieren
+            mrk.bindPopup(`
+                <small>${article.feature}</small>
+                <h3>${article.title} (${article.elevation}m)</h3>
+                ${img}
+                <p>${article.summary}</p>
+                <a target="Wikipedia" href="https://${article.wikipediaUrl}">Wikipedia-Artikel</a>
+            `);
+        }
+    });
+};
+
+
+//Funktion zum Zeichnen eines Tracks / Höhenprofil
 let activeElevationTrack;
 
 const drawTrack = (nr) => {
@@ -64,6 +141,7 @@ const drawTrack = (nr) => {
         activeElevationTrack.removeFrom(map);
     }
     
+    //for new browsers
     let gpxTrack = new L.GPX(`tracks/${nr}.gpx`, {
         async: true, //asynchron laden
         marker_options: {
