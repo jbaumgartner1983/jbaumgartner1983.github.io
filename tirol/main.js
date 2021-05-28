@@ -44,6 +44,7 @@ let layerControl = L.control.layers({
 
 // Overlay mit GPX-Track anzeigen
 overlays.tracks.addTo(map);
+overlays.wikipedia.addTo(map);
 
 // etappe 10, Kufstein - Kössen
 //Höhenprofil
