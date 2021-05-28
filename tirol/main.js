@@ -140,7 +140,7 @@ const drawTrack = (nr) => {
     if (activeElevationTrack) {
         activeElevationTrack.removeFrom(map);
     }
-    
+
     //for new browsers
     let gpxTrack = new L.GPX(`tracks/${nr}.gpx`, {
         async: true, //asynchron laden
