@@ -16,7 +16,8 @@ let baselayers = {
 
 // Overlays für die Themen zum Ein- und Ausschalten definieren
 let overlays = {
-    tracks: L.featureGroup()
+    tracks: L.featureGroup(),
+    wikipedia: L.featureGroup()
 };
 
 // Karte initialisieren und auf Innsbrucks Wikipedia Koordinate blicken
