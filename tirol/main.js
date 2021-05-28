@@ -221,7 +221,17 @@ for (let track of BIKETIROL) { //pulldown menü erstellen, += immer eine option 
     pulldown.innerHTML += `<option ${selected} value="${track.nr}">${track.nr}: ${track.etappe}</option>`;
 }
 
+//metadaten
+updateTexts(pulldown.value);
+
 pulldown.onchange = () => {
     //console.log("changed", pulldown.value);
     drawTrack(pulldown.value);
+
+    // metadaten der Etappe updaten
+    updateTexts(pulldown.value);
 };
+map.on("zoomend moveend", () => {
+    // Wikipedia Artikel zeichnen
+    drawWikipedia(map.getBounds());
+});
