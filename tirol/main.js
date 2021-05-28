@@ -38,7 +38,8 @@ let layerControl = L.control.layers({
     "basemap.at hochauflösend": baselayers.highdpi,
     "basemap.at Orthofoto beschriftet": baselayers.ortho_overlay
 }, {
-    "GPX-Tracks": overlays.tracks
+    "GPX-Tracks": overlays.tracks,
+    "Wikipedia-Artikel": overlays.wikipedia
 }).addTo(map);
 
 // Overlay mit GPX-Track anzeigen
