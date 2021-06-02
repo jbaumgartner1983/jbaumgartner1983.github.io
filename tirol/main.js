@@ -39,7 +39,7 @@ let layerControl = L.control.layers({
     "basemap.at Orthofoto beschriftet": baselayers.ortho_overlay
 }, {
     "GPX-Tracks": overlays.tracks,
-    "Wikipedia-Artikel": overlays.wikipedia
+    "Wikipedia-Artikel": overlays.wikipedia,
 }).addTo(map);
 
 // Overlay mit GPX-Track anzeigen
