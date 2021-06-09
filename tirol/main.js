@@ -177,7 +177,7 @@ const drawTrack = (nr) => {
     });
 
     elevationControl.load(`tracks/${nr}.gpx`);
-    elevationControl.on('eledata', (evt) => {
+    elevationControl.on('eledata_loaded', (evt) => {
         activeElevationTrack = evt.layer;
     });
 };
